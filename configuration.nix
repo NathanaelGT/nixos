@@ -103,6 +103,7 @@
     pkgs.hypridle
     pkgs.hyprlock
     pkgs.hyprpanel
+    pkgs.youtube-music
     pkgs.rofi-wayland
     pkgs.catppuccin-gtk
     pkgs.catppuccin-cursors.mochaDark
@@ -180,6 +181,7 @@
     pkgs.winetricks
     catppuccin-gtk
     inputs.zen-browser.packages."${system}".twilight
+    pkgs.brave
     pkgs.speechd
 
     (pkgs.bottles.override { removeWarningPopup = true; })
@@ -284,11 +286,6 @@
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
-
-  programs.waybar = {
-    enable = true;
-  };
-
 
   programs.git = {
     enable = true;
