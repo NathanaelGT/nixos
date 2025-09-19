@@ -25,12 +25,6 @@
     options = [ "fmask=0022" "dmask=0022" "noatime" ];
   };
 
-  fileSystems."/media/cachy" = {
-    device = "/dev/disk/by-uuid/b73dec90-d4da-4abb-bbfd-e2a19202545e";
-    fsType = "ext4";
-    options = [ "rw" "noatime" "lazytime" "x-systemd.automount" "nofail" ];
-  };
-
   fileSystems."/media/e" = {
     device = "/dev/sda2";
     fsType = "ntfs-3g";
@@ -50,6 +44,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
 }

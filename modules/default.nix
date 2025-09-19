@@ -1,0 +1,19 @@
+{
+  imports = [
+    ./boot.nix
+    ./swap.nix
+    ./network.nix
+    ./power.nix
+    ./fonts.nix
+    ./locale.nix
+    ./graphics.nix
+    ./audio.nix
+    ./terminal
+    ./desktop
+    ./tui.nix
+    ./gui.nix
+    ./dev.nix
+    ./games.nix
+    ./android.nix
+  ];
+}
