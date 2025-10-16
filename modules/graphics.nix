@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -8,6 +8,7 @@
     vulkan-validation-layers
     amdvlk
     driversi686Linux.amdvlk
+    lact
   ];
 
   # Load nvidia driver for Xorg and Wayland
@@ -35,11 +36,11 @@
     # Enable this if you have graphical corruption issues or application crashes after waking
     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
     # of just the bare essentials.
-    powerManagement.enable = false;
+    powerManagement.enable = lib.mkDefault true;
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+    powerManagement.finegrained = true;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -54,7 +55,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     
     prime = {
       offload = {
@@ -65,4 +66,12 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
+
+  environment.variables = {
+    # paksa semua app pake iGPU
+    LIBVA_DRIVER_NAME = "radeonsi";
+    __NV_PRIME_RENDER_OFFLOAD = "0";
+    __GLX_VENDOR_LIBRARY_NAME = "mesa";
+  };
 }
+

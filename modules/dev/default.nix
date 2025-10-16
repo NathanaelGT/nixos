@@ -1,17 +1,26 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./php.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     git-credential-manager
     jujutsu
     bun
+
     mise
-    frankenphp
-    laravel
-    php
-    php84Extensions.opcache
-    php84Extensions.iconv
-    php84Packages.composer
+    re2c
+    libxml2
+    libxml2.dev
+    mlocate
+
+    podman
+    podman-tui
+    podman-compose
+    pods
+
     devenv
   ];
 
@@ -24,3 +33,4 @@
     };
   };
 }
+

@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, lib, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -13,9 +13,18 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-substituters = ["https://hyrpland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://yazi.cachix.org"
+      #"https://walker.cachix.org"
+      #"https://walker-git.cachix.org"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
+      #"walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
+      #"walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
+    ];
     trusted-users = [ "root" "nathanaelgt" ];
   };
 
@@ -33,23 +42,7 @@
 
   environment.variables = {
     EDITOR = "nvim";
-  }
-
-  environment.systemPackages = with pkgs; [
-    ntfs3g
-    psmisc
-    re2c
-    pkg-config
-    libxml2
-    libxml2.dev
-    bison
-    wl-clipboard
-    nvd
-    nix-output-monitor
-    autoconf
-    mlocate
-    lshw
-  ];
+  };
 
   system.stateVersion = "25.05";
 }

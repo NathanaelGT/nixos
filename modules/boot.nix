@@ -24,6 +24,8 @@
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
 
+      hardware.bluetooth.powerOnBoot = true;
+
       # Completely disable NVIDIA
       services.xserver.videoDrivers = [ "modesetting" ];
       hardware.nvidia = {

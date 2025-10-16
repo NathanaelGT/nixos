@@ -14,6 +14,8 @@
     inputs.zen-browser.packages."${system}".twilight
     brave
     zoom-us
+    gparted
+    upscayl
   ];
 
   programs.spicetify = {

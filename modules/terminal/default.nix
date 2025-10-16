@@ -6,11 +6,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    fastfetch
-    btop
-    nethogs
-    wget
-
     zellij
     tmux
     starship
@@ -18,17 +13,16 @@
     nix-search-cli
     speedtest-cli
 
-    gcc
-
-    litecli
-
-    bat
     dua
-    eza
+
+    fd # find
+    ripgrep # grep
+    zoxide # cd
+    bat  # cat
+    eza  # ls
+    dysk # df
   ];
 
   programs.fish.enable = true;
-
-  programs.pay-respects.enable = true;
-  programs.nix-index.enable = true;
 }
+

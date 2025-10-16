@@ -1,20 +1,19 @@
 { inputs, pkgs, ... }:
 
 {
+  imports = [
+    #inputs.walker.nixosModules.default
+  ];
+
   environment.systemPackages = with pkgs; [
+    #kdePackages.xwaylandvideobridge
+
     hypridle
     hyprlock
     hyprpanel
     hyprpolkitagent
 
-    catppuccin-gtk
-    catppuccin-cursors.mochaDark
-
     rofi-wayland
-
-    playerctl
-    brightnessctl
-    pavucontrol
 
     grim
     slurp
@@ -23,17 +22,24 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     config = {
-      common.default = ["gtk"];
-      hyprland.default = ["gtk" "hyprland"];
+      hyprland.default = ["hyprland" "gtk"];
     };
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
   };
+
+  #programs.walker = {
+  #  enable = true;
+  #  runAsService = true;
+  #};
 }

@@ -4,15 +4,18 @@
     ./swap.nix
     ./network.nix
     ./power.nix
+    ./build-tools.nix
+    ./toolchain.nix
     ./fonts.nix
     ./locale.nix
     ./graphics.nix
     ./audio.nix
     ./terminal
+    ./utilities.nix
     ./desktop
     ./tui.nix
     ./gui.nix
-    ./dev.nix
+    ./dev
     ./games.nix
     ./android.nix
   ];

@@ -8,6 +8,10 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  environment.systemPackages = with pkgs; [
+    ntfs3g
+  ];
+
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "uas" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
