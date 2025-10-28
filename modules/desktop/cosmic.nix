@@ -1,4 +1,8 @@
 {
-  services.desktopManager.cosmic.enable = true;
+  specialisation.cosmic.configuration = {
+    specialisation.isCosmic = true;
+
+    services.desktopManager.cosmic.enable = true;
+  };
 }
 

@@ -18,8 +18,14 @@
 
   boot.consoleLogLevel = 3;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
+  #services.scx = {
+  #  enable = true;
+    #scheduler = "scx_lavd";
+    #extraArgs = [ "--autopower" ];
+  #};
+    
   specialisation = {
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];

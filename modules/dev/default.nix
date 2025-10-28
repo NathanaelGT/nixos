@@ -22,6 +22,8 @@
     pods
 
     devenv
+
+    #mailhog
   ];
 
   programs.git = {

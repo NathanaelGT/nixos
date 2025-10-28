@@ -13,9 +13,11 @@
     feh
     inputs.zen-browser.packages."${system}".twilight
     brave
-    zoom-us
+    #zoom-us
     gparted
     upscayl
+    #localsend
+    #davinci-resolve
   ];
 
   programs.spicetify = {

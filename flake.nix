@@ -1,5 +1,7 @@
 {
   inputs = {
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+ 
     hyprland.url = "github:hyprwm/Hyprland";
 
     zen-browser = {
@@ -14,19 +16,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #elephant.url = "github:abenz1267/elephant";
+    elephant.url = "github:abenz1267/elephant";
     
-    #walker = {
-    #  url = "github:abenz1267/walker";
-    #  inputs.elephant.follows = "elephant";
-    #};
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
+  outputs = {nixpkgs, chaotic, ...} @ inputs: {
     nixosConfigurations.Victus = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        chaotic.nixosModules.default
       ];
     };
   };

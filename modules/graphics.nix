@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -6,8 +6,6 @@
     vulkan-tools
     vulkan-loader
     vulkan-validation-layers
-    amdvlk
-    driversi686Linux.amdvlk
     lact
   ];
 
@@ -55,7 +53,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = pkgs.linuxPackages_cachyos.nvidiaPackages.production;
     
     prime = {
       offload = {
