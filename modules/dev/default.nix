@@ -9,6 +9,7 @@
     git-credential-manager
     jujutsu
     bun
+    nodejs_24
 
     mise
     re2c

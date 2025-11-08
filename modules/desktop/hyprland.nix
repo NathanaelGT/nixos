@@ -1,10 +1,6 @@
 { inputs, config, lib, pkgs, ... }:
 
 {
-  imports = [
-    inputs.walker.nixosModules.default
-  ];
-
   environment.systemPackages = with pkgs; [
     #kdePackages.xwaylandvideobridge
     #xdg-desktop-portal-gtk
@@ -14,7 +10,10 @@
     hyprpanel
     hyprpolkitagent
 
-    #rofi
+    rofi
+
+    waybar
+    dunst
 
     grim
     slurp
@@ -58,11 +57,6 @@
     #  xdg-desktop-portal-hyprland
     #  xdg-desktop-portal-gtk
     #];
-  };
-
-  programs.walker = {
-    enable = true;
-    #runAsService = true;
   };
 
   services.auto-cpufreq.enable = true;
