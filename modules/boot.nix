@@ -6,7 +6,7 @@
 
   boot.tmp.useTmpfs = true;
 
-  boot.loader.timeout = 1;
+  boot.loader.timeout = 0;
   boot.loader.systemd-boot.editor = false;
 
   boot.kernelParams = [
@@ -27,10 +27,16 @@
   #};
     
   specialisation = {
+    bluetooth.configuration = {
+      system.nixos.tags = [ "bluetooth" ];
+
+      hardware.bluetooth.enable = true;
+    };
+
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
 
-      hardware.bluetooth.powerOnBoot = true;
+      hardware.bluetooth.enable = true;
 
       # Completely disable NVIDIA
       services.xserver.videoDrivers = [ "modesetting" ];

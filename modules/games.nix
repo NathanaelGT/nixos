@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     (bottles.override { removeWarningPopup = true; })
-    lutris
+    #lutris
     gamemode
     wineWowPackages.stagingFull
     winetricks

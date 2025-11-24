@@ -32,7 +32,7 @@
   fileSystems."/media/e" = {
     device = "/dev/sda2";
     fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" "gid=100" "noatime" "x-systemd.automount" "nofail" ];
+    options = [ "rw" "uid=1000" "gid=100" "noauto" "noatime" "x-systemd.automount" "nofail" ];
   };
 
   swapDevices = [ ];

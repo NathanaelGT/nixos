@@ -42,14 +42,14 @@
     enable = true;
     #wlr.enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-    ];
+    #extraPortals = [
+    #  pkgs.xdg-desktop-portal-gtk
+    #  pkgs.xdg-desktop-portal-wlr
+    #];
+    #configPackages = [
+    #  pkgs.xdg-desktop-portal-gtk
+    #  pkgs.xdg-desktop-portal-wlr
+    #];
     #config = {
     #  hyprland.default = ["gtk"];
     #};

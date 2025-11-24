@@ -18,6 +18,8 @@
     upscayl
     #localsend
     #davinci-resolve
+    winboat
+    stirling-pdf
   ];
 
   programs.spicetify = {
