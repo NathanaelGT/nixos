@@ -1,5 +1,7 @@
 {
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
  
     hyprland.url = "github:hyprwm/Hyprland";

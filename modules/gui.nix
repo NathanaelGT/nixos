@@ -15,11 +15,10 @@
     brave
     #zoom-us
     gparted
-    upscayl
+    #upscayl
     #localsend
     #davinci-resolve
-    winboat
-    stirling-pdf
+    #winboat
   ];
 
   programs.spicetify = {

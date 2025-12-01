@@ -5,9 +5,18 @@
     vnstat
   ];
  
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  networking = {
+    networkmanager = {
+      enable = true;
+      #dns = "none";
+
+      wifi = {
+        macAddress = "random";
+      };
+    };
+
+    nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  };
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
@@ -24,4 +33,6 @@
   #  after = [ "graphical.target" ];
   #  wantedBy = [ "graphical.target" ];
   #};
+
+  services.cloudflare-warp.enable = true;
 }

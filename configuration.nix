@@ -1,5 +1,4 @@
-{ inputs, pkgs, ... }:
-
+{ config, inputs, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -8,7 +7,18 @@
     inputs.nixos-cli.nixosModules.nixos-cli
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      stable = import (builtins.fetchTarball {
+        url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
+        sha256 = "sha256:1wqgqz8wjyvbi56mvkqxlbagqs1686f4x6065yk0li40gmz3p6fd";
+      }) {
+        system = pkgs.stdenv.system;
+        config = { allowUnfree = true; };
+      };
+    };
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -22,6 +32,10 @@
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
     ];
     trusted-users = [ "root" "nathanaelgt" ];
+
+    http-connections = 128;
+    max-substitution-jobs = 128;
+    max-jobs = "auto";
   };
 
   networking.hostName = "Victus";
