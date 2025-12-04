@@ -17,6 +17,14 @@
         system = pkgs.stdenv.system;
         config = { allowUnfree = true; };
       };
+
+      unstable = import (builtins.fetchTarball {
+        url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+        sha256 = "sha256:08g3n53m7qa2vd1sw0h4h73jmsx1ylnih7xpshqjaa0h0k58gfym";
+      }) {
+        system = pkgs.stdenv.system;
+        config = { allowUnfree = true; };
+      };
     };
   };
 
