@@ -31,12 +31,16 @@
       system.nixos.tags = [ "bluetooth" ];
 
       hardware.bluetooth.enable = true;
+
+      networking.networkmanager.wifi.macAddress = "random";
     };
 
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
 
       hardware.bluetooth.enable = true;
+
+      networking.networkmanager.wifi.macAddress = "random";
 
       # Completely disable NVIDIA
       services.xserver.videoDrivers = [ "modesetting" ];

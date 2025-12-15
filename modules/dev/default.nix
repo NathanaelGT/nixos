@@ -3,6 +3,7 @@
 {
   imports = [
     ./php.nix
+    ./llm.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -11,6 +12,7 @@
     bun
     nodejs_24
 
+    python314
     poetry
     uv
 
@@ -40,11 +42,11 @@
   };
 
   virtualisation.docker = {
-    enable = false;
+    #enable = true;
     storageDriver = "btrfs";
   };
 
-  #hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   users.users.nathanaelgt.extraGroups = [ "docker" ];
 }
