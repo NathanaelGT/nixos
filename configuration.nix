@@ -20,7 +20,7 @@
 
       unstable = import (builtins.fetchTarball {
         url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-        sha256 = "sha256:08g3n53m7qa2vd1sw0h4h73jmsx1ylnih7xpshqjaa0h0k58gfym";
+        sha256 = "sha256:1av417xj5zkv5srk0hsv0wgszmj1ilacy3p9vhwlji9yw4b28qsw";
       }) {
         system = pkgs.stdenv.system;
         config = { allowUnfree = true; };
@@ -60,6 +60,7 @@
 
   environment.variables = {
     EDITOR = "nvim";
+    BROWSER = "zen-beta";
   };
 
   system.stateVersion = "25.05";

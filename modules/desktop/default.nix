@@ -14,7 +14,7 @@
 
   imports = [
     ./hyprland.nix
-    ./niri.nix
+    #./niri.nix
     #./cosmic.nix
     ./keyboard.nix
     ./mouse.nix

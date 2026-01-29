@@ -40,6 +40,8 @@
 
       hardware.bluetooth.enable = true;
 
+      hardware.nvidia-container-toolkit.enable = false;
+
       networking.networkmanager.wifi.macAddress = "random";
 
       # Completely disable NVIDIA

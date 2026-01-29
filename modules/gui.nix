@@ -7,11 +7,14 @@
     obsidian
     vlc
     jetbrains.phpstorm
+    jetbrains.idea
+    antigravity
     vscode
     kdePackages.kolourpaint
     libreoffice-qt6-fresh
+    onlyoffice-desktopeditors
     feh
-    inputs.zen-browser.packages."${system}".twilight
+    inputs.zen-browser.packages."${system}".beta
     brave
     #zoom-us
     gparted

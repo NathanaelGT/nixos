@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -7,14 +7,17 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    gcc
+
     git-credential-manager
     jujutsu
     bun
     nodejs_24
+    rustup
 
-    python314
-    poetry
-    uv
+    #python314
+    #poetry
+    #uv
 
     mise
     re2c
@@ -32,6 +35,20 @@
     mailhog
   ];
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+      fuse3
+      icu
+      nss
+      openssl
+      curl
+      expat
+    ];
+  };
+
   programs.git = {
     enable = true;
     config = {
@@ -42,11 +59,11 @@
   };
 
   virtualisation.docker = {
-    #enable = true;
+    enable = false;
     storageDriver = "btrfs";
   };
 
-  hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.enable = lib.mkDefault true;
 
   users.users.nathanaelgt.extraGroups = [ "docker" ];
 }

@@ -7,6 +7,7 @@
     bluetui
     lazygit
     superfile
+    jellyfin-tui
   ];
 
   programs.neovim = {

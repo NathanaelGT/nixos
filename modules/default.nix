@@ -13,6 +13,7 @@
     ./terminal
     ./utilities.nix
     ./desktop
+    ./cli.nix
     ./tui.nix
     ./gui.nix
     ./dev
