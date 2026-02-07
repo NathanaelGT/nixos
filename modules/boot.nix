@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   boot.loader.systemd-boot.enable = true;
@@ -20,11 +20,11 @@
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
-  #services.scx = {
-  #  enable = true;
-    #scheduler = "scx_lavd";
-    #extraArgs = [ "--autopower" ];
-  #};
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+    extraArgs = lib.mkDefault [ "--performance" ];
+  };
     
   specialisation = {
     bluetooth.configuration = {
@@ -43,6 +43,8 @@
       hardware.nvidia-container-toolkit.enable = false;
 
       networking.networkmanager.wifi.macAddress = "random";
+
+      services.scx.extraArgs = [ "--powersave" ];
 
       # Completely disable NVIDIA
       services.xserver.videoDrivers = [ "modesetting" ];

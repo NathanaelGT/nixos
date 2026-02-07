@@ -8,14 +8,16 @@
     vlc
     jetbrains.phpstorm
     jetbrains.idea
+    zed-editor
     antigravity
     vscode
     kdePackages.kolourpaint
     libreoffice-qt6-fresh
     onlyoffice-desktopeditors
     feh
-    inputs.zen-browser.packages."${system}".beta
+    inputs.zen-browser.packages."${stdenv.hostPlatform.system}".beta
     brave
+    vivaldi
     #zoom-us
     gparted
     #upscayl

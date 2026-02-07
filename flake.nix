@@ -17,14 +17,33 @@
       url = "github:nix-community/nixos-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #hytale-launcher = {
+    #  url = "github:visoredkon/hytale-launcher-flake";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
-  outputs = {nixpkgs, chaotic, ...} @ inputs: {
+  outputs = inputs@{
+    nixpkgs,
+    chaotic,
+    #hytale-launcher, 
+    ...
+  }:
+  let
+    lib = nixpkgs.lib;
+  in
+  {
     nixosConfigurations.Victus = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         chaotic.nixosModules.default
+        #{
+        #  nixpkgs.overlays = [ hytale-launcher.overlays.default ];
+        #  nixpkgs.config.allowUnfreePredicate = pkg:
+        #    builtins.elem (nixpkgs.lib.getName pkg) [ "hytale-launcher" ];
+        #}
       ];
     };
   };
