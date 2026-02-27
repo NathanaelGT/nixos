@@ -9,8 +9,9 @@
     jetbrains.phpstorm
     jetbrains.idea
     zed-editor
-    antigravity
+    master.antigravity
     vscode
+    bruno
     kdePackages.kolourpaint
     libreoffice-qt6-fresh
     onlyoffice-desktopeditors

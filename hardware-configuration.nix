@@ -17,22 +17,24 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/3d5f9132-6603-4fc3-aa8b-59d45b425dc8";
-    fsType = "btrfs";
-    options = [ "subvol=@" ];
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/3d5f9132-6603-4fc3-aa8b-59d45b425dc8";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/54A4-C4C4";
-    fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" "noatime" ];
-  };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/54A4-C4C4";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" "noatime" ];
+    };
 
-  fileSystems."/media/e" = {
-    device = "/dev/sda2";
-    fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" "gid=100" "noauto" "noatime" "x-systemd.automount" "nofail" ];
+    "/media/e" = {
+      device = "/dev/sda2";
+      fsType = "ntfs-3g";
+      options = [ "rw" "uid=1000" "gid=100" "noauto" "noatime" "x-systemd.automount" "nofail" ];
+    };
   };
 
   swapDevices = [

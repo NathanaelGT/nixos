@@ -14,6 +14,7 @@
     "loglevel=3"                 # only show errors
     "udev.log_level=3"           # silence udev logs
     "vt.global_cursor_default=0" # hide the blinking cursor
+    "preempt=full"
   ];
 
   boot.consoleLogLevel = 3;

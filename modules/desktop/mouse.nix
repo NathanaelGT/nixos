@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     libratbag
-    piper
+    piper # logitech
   ];
 
   services.ratbagd.enable = true;

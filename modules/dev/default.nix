@@ -11,7 +11,8 @@
 
     git-credential-manager
     jujutsu
-    bun
+    jjui
+    unstable.bun
     nodejs_24
     rustup
 

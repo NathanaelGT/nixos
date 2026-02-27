@@ -10,18 +10,12 @@
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
-      stable = import (builtins.fetchTarball {
-        url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
-        sha256 = "sha256:1wqgqz8wjyvbi56mvkqxlbagqs1686f4x6065yk0li40gmz3p6fd";
-      }) {
+      master = import inputs.nixpkgs-master {
         system = pkgs.stdenv.system;
         config = { allowUnfree = true; };
       };
 
-      unstable = import (builtins.fetchTarball {
-        url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-        sha256 = "sha256:1av417xj5zkv5srk0hsv0wgszmj1ilacy3p9vhwlji9yw4b28qsw";
-      }) {
+      unstable = import inputs.nixpkgs-unstable {
         system = pkgs.stdenv.system;
         config = { allowUnfree = true; };
       };

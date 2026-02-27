@@ -17,7 +17,7 @@
     zulu
     zulu17
     zulu8
-    unstable.modrinth-app
+    modrinth-app
   ];
 
   programs.steam.enable = true;
