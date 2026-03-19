@@ -9,6 +9,7 @@
     fastfetch
     nvd
     nix-output-monitor
+    inotify-tools
   ];
 }
 

@@ -26,12 +26,15 @@
     #  url = "github:visoredkon/hytale-launcher-flake";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
+
+    hyprcap.url = "github:NathanaelGT/hyprcap";
   };
 
   outputs = inputs@{
     nixpkgs,
     chaotic,
-    #hytale-launcher, 
+    #hytale-launcher,
+    hyprcap,
     ...
   }:
   let

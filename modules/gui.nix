@@ -19,12 +19,13 @@
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".beta
     brave
     vivaldi
+    kdePackages.dolphin
     #zoom-us
     gparted
-    #upscayl
-    #localsend
+    localsend
     #davinci-resolve
     #winboat
+    gopeed
   ];
 
   programs.spicetify = {

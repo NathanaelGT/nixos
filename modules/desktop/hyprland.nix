@@ -2,18 +2,27 @@
 
 {
   environment.systemPackages = with pkgs; [
+    unstable.hyprland
+
     #kdePackages.xwaylandvideobridge
     xdg-desktop-portal-gtk
 
     hypridle
     hyprlock
-    hyprpanel
+    hyprpicker
+    unstable.hyprshutdown
     hyprpolkitagent
 
-    rofi
+    (rofi.override {
+      plugins = [
+        rofi-calc
+      ];
+    })
 
     waybar
     dunst
+
+    inputs.hyprcap.packages."${stdenv.hostPlatform.system}".default
 
     grim
     slurp
@@ -22,10 +31,6 @@
 
   programs.hyprland = {
     enable = true;
-
-    #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    #portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   environment.sessionVariables = {
@@ -44,24 +49,6 @@
     XDG_SESSION_DESKTOP = "Hyprland";
   };
 
-  #xdg.portal = {
-  #  enable = true;
-  #  xdgOpenUsePortal = true;
-  #  extraPortals = with pkgs; [
-  #    xdg-desktop-portal-hyprland
-  #    xdg-desktop-portal-gtk
-  #  ];
-  #  config = {
-  #    common = {
-  #      default = [ "hyprland" "gtk" ];
-  #    };
-  #    Hyprland = {
-  #      default = [ "hyprland" "gtk" ];
-  #      "org.freedesktop.portal.Settings" = [ "gtk" ];
-  #      "org.freedesktop.portal.FileChooser" = [ "gtk" ];
-  #    };
-  #  };
-  #};
   xdg.portal = {
     enable = true;
 

@@ -15,6 +15,8 @@
     "udev.log_level=3"           # silence udev logs
     "vt.global_cursor_default=0" # hide the blinking cursor
     "preempt=full"
+    "nvidia_drm.modeset=1" 
+    "nvidia_drm.fbdev=1"
   ];
 
   boot.consoleLogLevel = 3;
