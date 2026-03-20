@@ -34,7 +34,6 @@
     nixpkgs,
     nix-cachyos-kernel,
     #hytale-launcher,
-    hyprcap,
     ...
   }:
   let
