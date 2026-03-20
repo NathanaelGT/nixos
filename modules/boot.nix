@@ -21,7 +21,7 @@
 
   boot.consoleLogLevel = 3;
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
   services.scx = {
     enable = true;

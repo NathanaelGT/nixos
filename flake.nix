@@ -6,8 +6,8 @@
 
     nixpkgs-master.url = "nixpkgs/master";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
- 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     #hyprland.url = "github:hyprwm/Hyprland";
 
     zen-browser = {
@@ -32,7 +32,7 @@
 
   outputs = inputs@{
     nixpkgs,
-    chaotic,
+    nix-cachyos-kernel,
     #hytale-launcher,
     hyprcap,
     ...
@@ -45,7 +45,9 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        chaotic.nixosModules.default
+        {
+          nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
+        }
         #{
         #  nixpkgs.overlays = [ hytale-launcher.overlays.default ];
         #  nixpkgs.config.allowUnfreePredicate = pkg:
@@ -55,3 +57,4 @@
     };
   };
 }
+

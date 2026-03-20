@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -53,7 +53,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = pkgs.linuxPackages_cachyos.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     
     prime = {
       offload = {
