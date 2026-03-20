@@ -7,6 +7,7 @@
     gamemode
     wineWowPackages.stagingFull
     winetricks
+    unstable.protontricks
 
     mangohud
     lsfg-vk

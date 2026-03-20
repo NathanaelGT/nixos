@@ -1,9 +1,7 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    vnstat
-  ];
+  services.vnstat.enable = true;
  
   networking = {
     networkmanager = {
