@@ -1,27 +1,38 @@
 { pkgs, lib, ... }:
 
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    tmp.useTmpfs = true;
 
-  boot.tmp.useTmpfs = true;
+    loader = {
+      timeout = 0;
+      efi.canTouchEfiVariables = true;
 
-  boot.loader.timeout = 0;
-  boot.loader.systemd-boot.editor = false;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        consoleMode = "0";
+      };
+    };
 
-  boot.kernelParams = [
-    "quiet"                      # suppress most kernel logs
-    "loglevel=3"                 # only show errors
-    "udev.log_level=3"           # silence udev logs
-    "vt.global_cursor_default=0" # hide the blinking cursor
-    "preempt=full"
-    "nvidia_drm.modeset=1" 
-    "nvidia_drm.fbdev=1"
-  ];
+    initrd.verbose = false;
 
-  boot.consoleLogLevel = 3;
+    consoleLogLevel = 0;
 
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+
+    kernelParams = [
+      "quiet"                      # suppress most kernel logs
+      "loglevel=3"                 # only show errors
+      "udev.log_level=3"           # silence udev logs
+      "vt.global_cursor_default=0" # hide the blinking cursor
+      "preempt=full"
+      "nvidia_drm.modeset=1" 
+      "nvidia_drm.fbdev=1"
+      "nowatchdog"
+      "fastboot"
+    ];
+  };
 
   services.scx = {
     enable = true;

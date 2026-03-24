@@ -18,7 +18,7 @@
 
     #python314
     #poetry
-    #uv
+    uv
 
     mise
     re2c
@@ -64,7 +64,7 @@
     storageDriver = "btrfs";
   };
 
-  hardware.nvidia-container-toolkit.enable = lib.mkDefault true;
+  hardware.nvidia-container-toolkit.enable = lib.mkDefault false;
 
   users.users.nathanaelgt.extraGroups = [ "docker" ];
 }

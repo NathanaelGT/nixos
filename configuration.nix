@@ -53,7 +53,7 @@
     description = "NathanaelGT";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
   };
 
   services.getty.autologinUser = "nathanaelgt";

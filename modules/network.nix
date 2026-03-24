@@ -4,11 +4,21 @@
   services.vnstat.enable = true;
  
   networking = {
-    networkmanager = {
-      enable = true;
-    };
+    nftables.enable = true;
 
-    nameservers = [ "1.1.1.1" "1.0.0.1" ];
+    networkmanager.enable = true;
+
+    nameservers = [
+      "1.1.1.2"
+      "1.0.0.2"
+      "2606:4700:4700::1112"
+      "2606:4700:4700::1002"
+    ];
+
+    firewall.allowedTCPPorts = [
+      8887 # web animeh dev backend
+      8888 # web animeh
+    ];
   };
 
   boot.kernel.sysctl = {
@@ -55,10 +65,6 @@
     enable = lib.mkDefault false;
     powerOnBoot = true;
   };
-
-  networking.firewall.allowedTCPPorts = [
-    8888 # web animeh
-  ];
 
   services.cloudflare-warp.enable = true;
 }
