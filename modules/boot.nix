@@ -6,12 +6,19 @@
 
     loader = {
       timeout = 0;
+
       efi.canTouchEfiVariables = true;
 
       systemd-boot = {
         enable = true;
         editor = false;
         consoleMode = "0";
+
+        extraEntries."00-windows.conf" = ''
+          title Windows 11
+          efi   /EFI/Microsoft/Boot/bootmgfw.efi
+          sort-key a_windows
+        '';
       };
     };
 

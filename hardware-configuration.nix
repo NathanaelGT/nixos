@@ -24,6 +24,12 @@
       options = [ "subvol=@" ];
     };
 
+    "/media/windows" = {
+      device = "/dev/nvme0n1p3";
+      fsType = "ntfs-3g";
+      options = [ "rw" "uid=1000" "gid=100" "noauto" "noatime" "x-systemd.automount" "nofail" ];
+    };
+
     "/boot" = {
       device = "/dev/disk/by-uuid/54A4-C4C4";
       fsType = "vfat";

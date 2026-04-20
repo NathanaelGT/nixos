@@ -27,6 +27,9 @@
       noto-fonts-color-emoji
 
       nerd-fonts.fira-code
+
+      corefonts # Andalé Mono, Arial, Arial Black, Comic Sans MS, Courier New, Georgia, Impact, Times New Roman, Trebuchet MS,Verdana, Webdings
+      vista-fonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel 
     ];
   };
 }

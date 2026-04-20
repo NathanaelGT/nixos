@@ -9,8 +9,9 @@
     jetbrains.phpstorm
     jetbrains.idea
     zed-editor
-    master.antigravity
+    unstable.antigravity
     vscode
+    unstable.opencode
     bruno
     kdePackages.kolourpaint
     libreoffice-qt6-fresh
@@ -24,6 +25,7 @@
     gparted
     localsend
     #davinci-resolve
+    kdePackages.kdenlive
     #winboat
     gopeed
   ];
@@ -48,4 +50,6 @@
       obs-vkcapture
     ];
   };
+
+  programs.kdeconnect.enable = true;
 }
