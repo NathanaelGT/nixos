@@ -15,10 +15,14 @@
       "2606:4700:4700::1002"
     ];
 
-    firewall.allowedTCPPorts = [
-      8887 # web animeh dev backend
-      8888 # web animeh
-    ];
+    firewall = {
+      allowedTCPPorts = [
+        8887 # web animeh dev backend
+        8888 # web animeh
+      ];
+
+      checkReversePath = "loose";
+    };
   };
 
   boot.kernel.sysctl = {

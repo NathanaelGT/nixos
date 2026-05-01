@@ -5,4 +5,6 @@
     android-tools
     scrcpy
   ];
+
+  virtualisation.waydroid.enable = true;
 }
