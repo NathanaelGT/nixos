@@ -11,6 +11,7 @@
     zed-editor
     unstable.antigravity
     vscode
+    inputs.forgecode.packages.x86_64-linux.forgecode
     unstable.opencode
     bruno
     kdePackages.kolourpaint
@@ -18,6 +19,7 @@
     onlyoffice-desktopeditors
     feh
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".beta
+    inputs.helium.packages.${stdenv.hostPlatform.system}.default
     brave
     vivaldi
     kdePackages.dolphin

@@ -27,6 +27,8 @@
     grim
     slurp
     satty
+
+    udiskie
   ];
 
   programs.hyprland = {
@@ -77,15 +79,21 @@
 
   systemd.user.services.xdg-desktop-portal-gtk.wantedBy = [ "xdg-desktop-portal.service" ];
 
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
+  services = {
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+        };
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+      };
     };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
+
+    udisks2.enable = true;
   };
 }
