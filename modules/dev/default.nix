@@ -12,9 +12,12 @@
     git-credential-manager
     jujutsu
     jjui
-    unstable.bun
+    #unstable.bun
     nodejs_24
-    rustup
+
+    rustc
+    cargo
+    clippy
 
     #python314
     #poetry
@@ -34,6 +37,7 @@
     devenv
 
     mailhog
+    mailpit
   ];
 
   programs.nix-ld = {
