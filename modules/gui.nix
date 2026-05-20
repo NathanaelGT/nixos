@@ -11,7 +11,6 @@
     zed-editor
     unstable.antigravity
     vscode
-    inputs.forgecode.packages.x86_64-linux.forgecode
     unstable.opencode
     bruno
     kdePackages.kolourpaint

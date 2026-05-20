@@ -33,11 +33,6 @@
     #};
 
     hyprcap.url = "github:NathanaelGT/hyprcap";
-    
-    forgecode = {
-      url = "github:visoredkon/forgecode-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{
