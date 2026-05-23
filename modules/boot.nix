@@ -72,7 +72,6 @@
       hardware.nvidia = {
         modesetting.enable = false;
         powerManagement.enable = false;
-        open = false;
       };
 
       # Blacklist NVIDIA modules so kernel never loads them

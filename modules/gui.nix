@@ -6,6 +6,7 @@
     youtube-music
     obsidian
     vlc
+    stremio-linux-shell
     jetbrains.phpstorm
     jetbrains.idea
     zed-editor
