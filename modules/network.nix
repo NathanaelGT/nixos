@@ -63,7 +63,10 @@
     "net.ipv6.conf.default.use_tempaddr" = lib.mkForce 2;
   };
 
-  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.services = {
+    NetworkManager-wait-online.enable = false;
+    systemd-user-sessions.after = lib.mkForce [ "basic.target" ];
+  };
 
   hardware.bluetooth = {
     enable = lib.mkDefault false;

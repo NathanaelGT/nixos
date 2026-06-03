@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     btop
     litecli
+    lazysql
     bluetui
     lazygit
     superfile

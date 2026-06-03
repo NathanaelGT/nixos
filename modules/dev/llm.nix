@@ -2,8 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    lmstudio
-    unstable.ollama-cuda
+    #lmstudio
+    #unstable.ollama-cuda
     #open-webui
   ];
 }

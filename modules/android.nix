@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -7,4 +7,8 @@
   ];
 
   virtualisation.waydroid.enable = true;
+
+  systemd.services.waydroid-container = {
+    wantedBy = lib.mkForce [ ];
+  };
 }
