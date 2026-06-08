@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     android-tools
     scrcpy
+    waydroid-helper
   ];
 
   virtualisation.waydroid.enable = true;

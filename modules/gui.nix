@@ -30,6 +30,7 @@
     kdePackages.kdenlive
     #winboat
     gopeed
+    sniffnet
   ];
 
   programs.spicetify = {
