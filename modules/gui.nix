@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     kitty
-    youtube-music
+    pear-desktop
     obsidian
     vlc
     stremio-linux-shell

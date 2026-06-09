@@ -5,7 +5,7 @@
     (bottles.override { removeWarningPopup = true; })
     #lutris
     gamemode
-    wineWowPackages.stagingFull
+    wineWow64Packages.stagingFull
     winetricks
     unstable.protontricks
 
