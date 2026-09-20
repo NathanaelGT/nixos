@@ -6,6 +6,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = "hm-backup";
+    backupFileExtension = "home-manager.backup";
+    sharedModules = [ { home.stateVersion = "25.11"; } ];
   };
 }

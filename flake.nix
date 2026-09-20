@@ -57,7 +57,6 @@
     lib = nixpkgs.lib;
   in
   {
-    # Adding a host is a directory in ./hosts plus one line here.
     nixosConfigurations = lib.mapAttrs (
       hostname: hostPath:
       lib.nixosSystem {
@@ -67,8 +66,6 @@
           {
             nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
             networking.hostName = lib.mkDefault hostname;
-            # Shared by every host; a machine whose state really began on a
-            # different release overrides this with its own value.
             system.stateVersion = lib.mkDefault "25.05";
           }
           hostPath
