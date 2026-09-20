@@ -2,8 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    linux-wifi-hotspot
-    iwmenu
     dufs
   ];
 
@@ -24,15 +22,6 @@
     ];
 
     firewall = {
-      allowedTCPPorts = [
-        8887 # web animeh dev backend
-        8888 # web animeh
-      ];
-
-      allowedUDPPorts = [
-        38899 # wizlight
-      ];
-
       checkReversePath = "loose";
 
       trustedInterfaces = [ "tailscale0" ];
@@ -82,11 +71,5 @@
     systemd-user-sessions.after = lib.mkForce [ "basic.target" ];
   };
 
-  hardware.bluetooth = {
-    enable = lib.mkDefault true;
-    powerOnBoot = true;
-  };
-
   services.cloudflare-warp.enable = true;
 }
-

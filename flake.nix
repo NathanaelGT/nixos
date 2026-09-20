@@ -8,6 +8,11 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #catppuccin.url = "github:catppuccin/nix/release-26.05";
 
     #hyprland.url = "github:hyprwm/Hyprland";
@@ -46,28 +51,34 @@
 
   outputs = inputs@{
     nixpkgs,
-    nix-cachyos-kernel,
-    #hytale-launcher,
     ...
   }:
   let
     lib = nixpkgs.lib;
   in
   {
-    nixosConfigurations.Victus = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        {
-          nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
-        }
-        #catppuccin.nixosModules.catppuccin
-        #{
-        #  nixpkgs.overlays = [ hytale-launcher.overlays.default ];
-        #  nixpkgs.config.allowUnfreePredicate = pkg:
-        #    builtins.elem (nixpkgs.lib.getName pkg) [ "hytale-launcher" ];
-        #}
-      ];
+    nixosConfigurations = lib.mapAttrs (
+      hostname: hostPath:
+      lib.nixosSystem {
+        specialArgs = { inherit inputs hostname; };
+
+        modules = [
+          {
+            nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+            networking.hostName = lib.mkDefault hostname;
+            system.stateVersion = lib.mkDefault "25.05";
+          }
+          hostPath
+          #inputs.catppuccin.nixosModules.catppuccin
+          #{
+          #  nixpkgs.overlays = [ inputs.hytale-launcher.overlays.default ];
+          #  nixpkgs.config.allowUnfreePredicate = pkg:
+          #    builtins.elem (lib.getName pkg) [ "hytale-launcher" ];
+          #}
+        ];
+      }
+    ) {
+      Victus = ./hosts/Victus;
     };
   };
 }

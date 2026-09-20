@@ -1,13 +1,6 @@
-{ config, inputs, pkgs, ... }:
-{
-  imports = [
-    ./hardware-configuration.nix
-    ./modules
-    inputs.spicetify-nix.nixosModules.default
-    inputs.nixos-cli.nixosModules.nixos-cli
-    inputs.walker.nixosModules.default
-  ];
+{ inputs, ... }:
 
+{
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
@@ -52,23 +45,4 @@
     max-substitution-jobs = 128;
     max-jobs = "auto";
   };
-
-  networking.hostName = "Victus";
-
-  users.users.nathanaelgt = {
-    isNormalUser = true;
-    description = "NathanaelGT";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-    shell = pkgs.bash;
-  };
-
-  services.getty.autologinUser = "nathanaelgt";
-
-  environment.variables = {
-    EDITOR = "nvim";
-    BROWSER = "zen-beta";
-  };
-
-  system.stateVersion = "25.05";
 }

@@ -8,7 +8,6 @@
     unrar
 
     iw
-    linux-wifi-hotspot
 
     poppler-utils
     img2pdf

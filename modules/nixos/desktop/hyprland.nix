@@ -13,12 +13,6 @@
     unstable.hyprshutdown
     hyprpolkitagent
 
-    (rofi.override {
-      plugins = [
-        rofi-calc
-      ];
-    })
-
     waybar
     networkmanagerapplet
     overskride
