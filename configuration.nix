@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./modules
+    inputs.home-manager.nixosModules.home-manager
     inputs.spicetify-nix.nixosModules.default
     inputs.nixos-cli.nixosModules.nixos-cli
     inputs.walker.nixosModules.default
@@ -61,6 +62,13 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
     shell = pkgs.bash;
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "hm-backup";
+    users.nathanaelgt = import ./home;
   };
 
   services.getty.autologinUser = "nathanaelgt";

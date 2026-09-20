@@ -9,7 +9,6 @@
   environment.systemPackages = with pkgs; [
     gcc
 
-    git-credential-manager
     jujutsu
     jjui
     #unstable.bun
@@ -53,15 +52,6 @@
       curl
       expat
     ];
-  };
-
-  programs.git = {
-    enable = true;
-    config = {
-      credential.helper = "manager";
-      user.name = "NathanaelGT";
-      user.email = "gordontanu2004@gmail.com";
-    };
   };
 
   virtualisation.docker = {

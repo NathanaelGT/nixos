@@ -8,6 +8,11 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #catppuccin.url = "github:catppuccin/nix/release-26.05";
 
     #hyprland.url = "github:hyprwm/Hyprland";
