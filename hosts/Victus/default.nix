@@ -18,7 +18,10 @@
   ];
 
   home-manager.users.nathanaelgt = {
-    imports = [ ../../home/nathanaelgt ];
+    imports = [
+      ../../home/nathanaelgt
+      ../../modules/home-manager/rofi.nix
+    ];
   };
 
   services.getty.autologinUser = "nathanaelgt";

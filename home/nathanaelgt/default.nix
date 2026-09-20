@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ./git.nix
-    ./rofi.nix
+    ../../modules/home-manager/git.nix
   ];
 
   home.stateVersion = "25.11";
