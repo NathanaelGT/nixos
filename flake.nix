@@ -67,6 +67,9 @@
           {
             nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
             networking.hostName = lib.mkDefault hostname;
+            # Shared by every host; a machine whose state really began on a
+            # different release overrides this with its own value.
+            system.stateVersion = lib.mkDefault "25.05";
           }
           hostPath
           #inputs.catppuccin.nixosModules.catppuccin

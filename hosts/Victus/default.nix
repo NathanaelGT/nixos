@@ -22,11 +22,7 @@
       ../../modules/home-manager/git.nix
       ../../modules/home-manager/rofi.nix
     ];
-
-    home.stateVersion = "25.11";
   };
 
   services.getty.autologinUser = "nathanaelgt";
-
-  system.stateVersion = "25.05";
 }
