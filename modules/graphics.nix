@@ -7,6 +7,7 @@
     vulkan-loader
     vulkan-validation-layers
     lact
+    rocmPackages.rocm-smi # dependency btop
   ];
 
   # Load nvidia driver for Xorg and Wayland
@@ -66,10 +67,9 @@
   };
 
   environment.variables = {
-    # paksa semua app pake iGPU
-    LIBVA_DRIVER_NAME = "radeonsi";
-    __NV_PRIME_RENDER_OFFLOAD = "0";
-    __GLX_VENDOR_LIBRARY_NAME = "mesa";
+    LIBVA_DRIVER_NAME = lib.mkDefault "nvidia";
+    __NV_PRIME_RENDER_OFFLOAD = lib.mkDefault "1";
+    __GLX_VENDOR_LIBRARY_NAME = lib.mkDefault "nvidia";
   };
 }
 

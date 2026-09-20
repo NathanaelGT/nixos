@@ -6,11 +6,12 @@
     pear-desktop
     obsidian
     vlc
+    mpv
     stremio-linux-shell
     jetbrains.phpstorm
     jetbrains.idea
     zed-editor
-    unstable.antigravity
+    #unstable.antigravity
     vscode
     unstable.opencode
     bruno
@@ -19,9 +20,9 @@
     onlyoffice-desktopeditors
     feh
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".beta
-    inputs.helium.packages.${stdenv.hostPlatform.system}.default
+    #inputs.helium.packages.${stdenv.hostPlatform.system}.default
     brave
-    vivaldi
+    #vivaldi
     kdePackages.dolphin
     #zoom-us
     gparted
@@ -31,6 +32,8 @@
     #winboat
     gopeed
     sniffnet
+    blanket
+    unstable.zotero # v10
   ];
 
   programs.spicetify = {

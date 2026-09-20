@@ -12,10 +12,20 @@
     ntfs3g
   ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "uas" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+
+    initrd = {
+      includeDefaultModules = false;
+      availableKernelModules = [ "nvme" "xhci_pci" "usbhid" ];
+      kernelModules = [ ];
+
+      compressor = "cat";
+      #compressor = "zstd";
+      #compressorArgs = [ "-19" "--threads=0" ];
+    };
+  };
 
   fileSystems = {
     "/" = {
@@ -33,7 +43,7 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/54A4-C4C4";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" "noatime" ];
+      options = [ "fmask=0022" "dmask=0022" "noauto" "noatime" "x-systemd.automount" "nofail" ];
     };
 
     "/media/e" = {

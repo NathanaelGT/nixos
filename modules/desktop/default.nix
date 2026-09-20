@@ -10,6 +10,7 @@
     playerctl
     brightnessctl
     pavucontrol
+    pwvucontrol
   ];
 
   imports = [

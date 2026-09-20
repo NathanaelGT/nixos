@@ -38,6 +38,7 @@
       "nvidia_drm.fbdev=1"
       "nowatchdog"
       "fastboot"
+      "random.trust_cpu=on"        # boot time
     ];
   };
 
@@ -46,15 +47,19 @@
     scheduler = "scx_lavd";
     extraArgs = lib.mkDefault [ "--performance" ];
   };
+
+  systemd.suppressedSystemUnits = [
+    "systemd-boot-random-seed.service"
+  ];
     
   specialisation = {
-    bluetooth.configuration = {
-      system.nixos.tags = [ "bluetooth" ];
+    #bluetooth.configuration = {
+    #  system.nixos.tags = [ "bluetooth" ];
 
-      hardware.bluetooth.enable = true;
+    #  hardware.bluetooth.enable = true;
 
-      networking.networkmanager.wifi.macAddress = "random";
-    };
+    #  networking.networkmanager.wifi.macAddress = "random";
+    #};
 
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
@@ -66,6 +71,12 @@
       networking.networkmanager.wifi.macAddress = "random";
 
       services.scx.extraArgs = [ "--powersave" ];
+
+      environment.variables = {
+        LIBVA_DRIVER_NAME = "radeonsi";
+        __NV_PRIME_RENDER_OFFLOAD = "0";
+        __GLX_VENDOR_LIBRARY_NAME = "mesa";
+      };
 
       # Completely disable NVIDIA
       services.xserver.videoDrivers = [ "modesetting" ];
@@ -87,6 +98,22 @@
         # Put NVIDIA GPU into auto-suspend
         ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{power/control}="auto"
       '';
+    };
+
+    gpu-mobile.configuration = {
+      system.nixos.tags = [ "gpu-mobile" ];
+
+      hardware.bluetooth.enable = true;
+
+      networking.networkmanager.wifi.macAddress = "random";
+
+      services.scx.extraArgs = [ "--powersave" ];
+
+      environment.variables = {
+        LIBVA_DRIVER_NAME = "radeonsi";
+        __NV_PRIME_RENDER_OFFLOAD = "0";
+        __GLX_VENDOR_LIBRARY_NAME = "mesa";
+      };
     };
   };
 }

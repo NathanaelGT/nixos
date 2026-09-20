@@ -8,6 +8,8 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    #catppuccin.url = "github:catppuccin/nix/release-26.05";
+
     #hyprland.url = "github:hyprwm/Hyprland";
 
     helium = {
@@ -59,6 +61,7 @@
         {
           nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
         }
+        #catppuccin.nixosModules.catppuccin
         #{
         #  nixpkgs.overlays = [ hytale-launcher.overlays.default ];
         #  nixpkgs.config.allowUnfreePredicate = pkg:

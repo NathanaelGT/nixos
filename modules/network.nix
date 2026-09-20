@@ -1,8 +1,16 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    linux-wifi-hotspot
+    iwmenu
+    dufs
+  ];
+
   services.vnstat.enable = true;
- 
+
+  services.tailscale.enable = true;
+
   networking = {
     nftables.enable = true;
 
@@ -21,7 +29,13 @@
         8888 # web animeh
       ];
 
+      allowedUDPPorts = [
+        38899 # wizlight
+      ];
+
       checkReversePath = "loose";
+
+      trustedInterfaces = [ "tailscale0" ];
     };
   };
 
@@ -69,7 +83,7 @@
   };
 
   hardware.bluetooth = {
-    enable = lib.mkDefault false;
+    enable = lib.mkDefault true;
     powerOnBoot = true;
   };
 

@@ -1,6 +1,7 @@
 {
   imports = [
     ./boot.nix
+    ./fs.nix
     ./swap.nix
     ./network.nix
     ./power.nix

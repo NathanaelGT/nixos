@@ -14,6 +14,7 @@
     jjui
     #unstable.bun
     nodejs_24
+    difftastic
 
     rustc
     cargo
@@ -29,10 +30,10 @@
     libxml2.dev
     mlocate
 
-    #podman
-    #podman-tui
-    #podman-compose
-    #pods
+    podman
+    podman-tui
+    podman-compose
+    pods
 
     devenv
 
@@ -70,6 +71,6 @@
 
   hardware.nvidia-container-toolkit.enable = lib.mkDefault false;
 
-  users.users.nathanaelgt.extraGroups = [ "docker" ];
+  users.users.nathanaelgt.extraGroups = [ "docker" "i2c" ];
 }
 

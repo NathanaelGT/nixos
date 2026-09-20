@@ -5,7 +5,7 @@
     xwayland-satellite
   ];
 
-programs.niri = {
+  programs.niri = {
     enable = true;
   };
 }

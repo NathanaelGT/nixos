@@ -6,7 +6,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    zellij
+    unstable.zellij # 0.45, kitty graphics protocol
     tmux
     starship
 

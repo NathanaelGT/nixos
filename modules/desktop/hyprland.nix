@@ -7,7 +7,7 @@
     #kdePackages.xwaylandvideobridge
     xdg-desktop-portal-gtk
 
-    hypridle
+    unstable.hypridle # bugfix
     hyprlock
     hyprpicker
     unstable.hyprshutdown
@@ -20,6 +20,9 @@
     })
 
     waybar
+    networkmanagerapplet
+    overskride
+
     dunst
 
     inputs.hyprcap.packages."${stdenv.hostPlatform.system}".default
@@ -81,7 +84,11 @@
     ];
   };
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+
+    polkit.enable = true;
+  };
 
   systemd.user.services.xdg-desktop-portal-gtk.wantedBy = [ "xdg-desktop-portal.service" ];
 
