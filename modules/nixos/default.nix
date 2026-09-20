@@ -1,6 +1,9 @@
 {
   imports = [
-    ./boot.nix
+    ./nix.nix
+    ./users.nix
+    ./home-manager.nix
+
     ./fs.nix
     ./swap.nix
     ./network.nix
@@ -9,7 +12,6 @@
     ./toolchain.nix
     ./fonts.nix
     ./locale.nix
-    ./graphics.nix
     ./audio.nix
     ./terminal
     ./utilities.nix
@@ -20,5 +22,9 @@
     ./dev
     ./games.nix
     ./android.nix
+
+    ./nix.nix
+    ./users.nix
+    ./home-manager.nix
   ];
 }

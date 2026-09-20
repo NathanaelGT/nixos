@@ -51,28 +51,18 @@
 
   outputs = inputs@{
     nixpkgs,
-    nix-cachyos-kernel,
-    #hytale-launcher,
     ...
   }:
   let
     lib = nixpkgs.lib;
+    mkHost = import ./lib/mkHost.nix { inherit inputs lib; };
   in
   {
-    nixosConfigurations.Victus = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        {
-          nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
-        }
-        #catppuccin.nixosModules.catppuccin
-        #{
-        #  nixpkgs.overlays = [ hytale-launcher.overlays.default ];
-        #  nixpkgs.config.allowUnfreePredicate = pkg:
-        #    builtins.elem (nixpkgs.lib.getName pkg) [ "hytale-launcher" ];
-        #}
-      ];
+    # Adding a host is a directory in ./hosts plus one line here.
+    nixosConfigurations = lib.mapAttrs (
+      hostname: hostPath: mkHost { inherit hostname; modules = [ hostPath ]; }
+    ) {
+      Victus = ./hosts/Victus;
     };
   };
 }
