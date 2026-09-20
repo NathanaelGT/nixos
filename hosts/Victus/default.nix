@@ -19,7 +19,7 @@
 
   home-manager.users.nathanaelgt = {
     imports = [
-      ../../home/nathanaelgt
+      ./nathanaelgt
       ../../modules/home-manager/rofi.nix
     ];
   };
